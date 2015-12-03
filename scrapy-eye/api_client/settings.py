@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for api_scraper project
+# Scrapy settings for pinnacle project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'api_scraper'
+BOT_NAME = 'pinnacle'
 
-SPIDER_MODULES = ['api_scraper.spiders']
-NEWSPIDER_MODULE = 'api_scraper.spiders'
+SPIDER_MODULES = ['api_client.spiders']
+NEWSPIDER_MODULE = 'api_client.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'api_scraper (+http://www.yourdomain.com)'
+#USER_AGENT = 'pinnacle (+http://www.yourdomain.com)'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS=32
@@ -45,13 +45,13 @@ DEFAULT_REQUEST_HEADERS = {
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'api_scraper.middlewares.MyCustomSpiderMiddleware': 543,
+#    'pinnacle.middlewares.MyCustomSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'api_scraper.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'pinnacle.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ DEFAULT_REQUEST_HEADERS = {
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'api_scraper.pipelines.SomePipeline': 300,
+#    'pinnacle.pipelines.SomePipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
