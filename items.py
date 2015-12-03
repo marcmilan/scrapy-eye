@@ -8,9 +8,41 @@
 import scrapy
 
 
-class ApiResponseItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
+class GameItem(scrapy.Item):
+
+    id = scrapy.Field()
+    name = scrapy.Field()
+    timestamp = scrapy.Field()
+
+
+class LeagueItem(scrapy.Item):
+
+    game = scrapy.Field()
+    hometeam = scrapy.Field()
+    id = scrapy.Field()
+    name = scrapy.Field()
+    sport = scrapy.Field()
+    timestamp = Iscrapy.Field()
+
+
+class MatchesItem(scrapy.Item):
+
+    id = scrapy.Field()
+    start = scrapy.Field()
+    team1 = scrapy.Field()
+    team2 = scrapy.Field()
+    timestamp = scrapy.Field()
+
+
+class Odds(scrapy.Item):
+
+    event = scrapy.Field()
+    team1_odds = scrapy.Field()
+    team2_odds = scrapy.Field()
+    timestamp = scrapy.Field()
+
+
+class Sport(scrapy.Item):
 
     id = scrapy.Field()
     name = scrapy.Field()
