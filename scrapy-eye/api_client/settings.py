@@ -33,7 +33,7 @@ NEWSPIDER_MODULE = 'api_client.spiders'
 #COOKIES_ENABLED=False
 
 # Disable Telnet Console (enabled by default)
-#TELNETCONSOLE_ENABLED=False
+TELNETCONSOLE_ENABLED=False
 
 # Override the default request headers:
 #'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
