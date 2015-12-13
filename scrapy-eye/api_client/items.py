@@ -34,7 +34,7 @@ class MatchesItem(scrapy.Item):
     timestamp = scrapy.Field()
 
 
-class Odds(scrapy.Item):
+class OddsItem(scrapy.Item):
 
     event = scrapy.Field()
     team1_odds = scrapy.Field()
@@ -42,7 +42,7 @@ class Odds(scrapy.Item):
     timestamp = scrapy.Field()
 
 
-class Sport(scrapy.Item):
+class SportItem(scrapy.Item):
 
     id = scrapy.Field()
     name = scrapy.Field()
