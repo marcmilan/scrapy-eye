@@ -25,7 +25,7 @@ class LeagueItem(scrapy.Item):
     timestamp = scrapy.Field()
 
 
-class MatchesItem(scrapy.Item):
+class MatchItem(scrapy.Item):
 
     id = scrapy.Field()
     start = scrapy.Field()
