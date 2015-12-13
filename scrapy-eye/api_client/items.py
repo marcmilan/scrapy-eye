@@ -22,7 +22,7 @@ class LeagueItem(scrapy.Item):
     id = scrapy.Field()
     name = scrapy.Field()
     sport = scrapy.Field()
-    timestamp = Iscrapy.Field()
+    timestamp = scrapy.Field()
 
 
 class MatchesItem(scrapy.Item):
