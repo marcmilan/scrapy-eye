@@ -9,6 +9,11 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
+# API authorization
+# generated using base64.b64encode(":".join([username, password]))
+API_TOKEN = 'R0M4MDk0NzQ6TGFpc2VlODgmJg=='
+
+
 BOT_NAME = 'pinnacle'
 
 SPIDER_MODULES = ['api_client.spiders']
@@ -38,8 +43,9 @@ TELNETCONSOLE_ENABLED=False
 # Override the default request headers:
 #'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
 #'Accept-Language': 'en',
+
 DEFAULT_REQUEST_HEADERS = {
-   'Authorization': 'Basic R0M4MDk0NzQ6TGFpc2VlODgmJg=='
+   'Authorization': 'Basic ' + API_TOKEN
 }
 
 # Enable or disable spider middlewares
