@@ -7,13 +7,11 @@
 
 import scrapy
 
-
 class GameItem(scrapy.Item):
 
     id = scrapy.Field()
     name = scrapy.Field()
     timestamp = scrapy.Field()
-
 
 class LeagueItem(scrapy.Item):
 
@@ -40,7 +38,6 @@ class OddsItem(scrapy.Item):
     team1_odds = scrapy.Field()
     team2_odds = scrapy.Field()
     timestamp = scrapy.Field()
-
 
 class SportItem(scrapy.Item):
 

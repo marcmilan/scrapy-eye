@@ -13,12 +13,10 @@
 # generated using base64.b64encode(":".join([username, password]))
 API_TOKEN = 'R0M4MDk0NzQ6TGFpc2VlODgmJg=='
 
-
 BOT_NAME = 'pinnacle'
 
 SPIDER_MODULES = ['api_client.spiders']
 NEWSPIDER_MODULE = 'api_client.spiders'
-
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'pinnacle (+http://www.yourdomain.com)'
@@ -29,7 +27,7 @@ NEWSPIDER_MODULE = 'api_client.spiders'
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY=3
+DOWNLOAD_DELAY=10
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN=16
 #CONCURRENT_REQUESTS_PER_IP=16

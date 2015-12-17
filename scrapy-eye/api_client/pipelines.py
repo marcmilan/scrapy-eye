@@ -5,17 +5,14 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
-
+import time
 from peewee import *
 
-
-database = MySQLDatabase('ninja', **{'user': 'root'})
-
+database = MySQLDatabase('bbninja', **{'user': 'root'})
 
 class BaseModel(Model):
     class Meta:
         database = database
-
 
 class Game(BaseModel):
     id = IntegerField(index=True)
@@ -69,13 +66,19 @@ class Sport(BaseModel):
 
 database.connect()
 
-
 class PinnacleLeaguesPipeline(object):
     def process_item(self, item, spider):
-        item = League(hometeam=item['hometeam'],
-                      id=int(item['id']),
-                      )
-        item.save()
+        query = "select * from league where id = %s" % item["id"]
+        league = None
+        try:
+           league = League.raw(query)
+        except BaseException as ex:
+           '''print ex'''
+        if league:
+           item = League(hometeam=item['hometeam'], id=int(item['id']),)
+           item.save()
+        else:
+           League.create( id=item['id'],name=item['name'], hometeam=item['hometeam'], timestamp= time.mktime(time.gmtime()), sport_id = 12)
 
 if __name__ == "__main__":
     database.create_tables([Game, League, Matches, Odds, Sport], safe=True)
