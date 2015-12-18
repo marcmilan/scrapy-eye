@@ -88,3 +88,8 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR='httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES=[]
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+#Database settings
+DB_USER = 'root'
+DB_PASSWD = ''
+DB_NAME = 'bbninja'

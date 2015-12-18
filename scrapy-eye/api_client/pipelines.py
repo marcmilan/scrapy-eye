@@ -7,8 +7,11 @@
 
 import time
 from peewee import *
+from scrapy.utils.project import get_project_settings
 
-database = MySQLDatabase('bbninja', **{'user': 'root'})
+
+SETTINGS = get_project_settings()
+database = MySQLDatabase(SETTINGS['DB_NAME'], **{'user': SETTINGS['DB_USER']})
 
 
 class BaseModel(Model):
