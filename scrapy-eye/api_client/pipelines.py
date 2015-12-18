@@ -10,9 +10,11 @@ from peewee import *
 
 database = MySQLDatabase('bbninja', **{'user': 'root'})
 
+
 class BaseModel(Model):
     class Meta:
         database = database
+
 
 class Game(BaseModel):
     id = IntegerField(index=True)
@@ -66,19 +68,26 @@ class Sport(BaseModel):
 
 database.connect()
 
+
 class PinnacleLeaguesPipeline(object):
     def process_item(self, item, spider):
-        query = "select * from league where id = %s" % item["id"]
-        league = None
+        query = League.select().where(League.id == item["id"])
+        # query = "select * from league where id = %s" % item["id"]
+        current_league = None
         try:
-           league = League.raw(query)
-        except BaseException as ex:
-           '''print ex'''
-        if league:
-           item = League(hometeam=item['hometeam'], id=int(item['id']),)
-           item.save()
+            current_league = query
+        except Exception as e:
+            print e
+        if len(current_league) == 0:
+            print 'creating league'
+            League.create(
+                          id=item['id'], name=item['name'],
+                          hometeam=item['hometeam'],
+                          timestamp=time.mktime(time.gmtime()), sport_id=12)
         else:
-           League.create( id=item['id'],name=item['name'], hometeam=item['hometeam'], timestamp= time.mktime(time.gmtime()), sport_id = 12)
+            print 'updating league'
+            item = League(hometeam=item['hometeam'], id=int(item['id']))
+            item.save()
 
 if __name__ == "__main__":
     database.create_tables([Game, League, Matches, Odds, Sport], safe=True)
