@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for oddschecker project
+# Scrapy settings for pinnacle project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,17 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'oddschecker'
+# API authorization
+# generated using base64.b64encode(":".join([username, password]))
+API_TOKEN = 'R0M4MDk0NzQ6TGFpc2VlODgmJg=='
 
-SPIDER_MODULES = ['oddschecker.spiders']
-NEWSPIDER_MODULE = 'oddschecker.spiders'
+BOT_NAME = 'pinnacle'
 
+SPIDER_MODULES = ['data_collector.spiders']
+NEWSPIDER_MODULE = 'data_collector.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'oddschecker (+http://www.yourdomain.com)'
+#USER_AGENT = 'pinnacle (+http://www.yourdomain.com)'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS=32
@@ -24,7 +27,7 @@ NEWSPIDER_MODULE = 'oddschecker.spiders'
 # Configure a delay for requests for the same website (default: 0)
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-#DOWNLOAD_DELAY=3
+DOWNLOAD_DELAY=10
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN=16
 #CONCURRENT_REQUESTS_PER_IP=16
@@ -33,24 +36,26 @@ NEWSPIDER_MODULE = 'oddschecker.spiders'
 #COOKIES_ENABLED=False
 
 # Disable Telnet Console (enabled by default)
-#TELNETCONSOLE_ENABLED=False
+TELNETCONSOLE_ENABLED=False
 
 # Override the default request headers:
-#DEFAULT_REQUEST_HEADERS = {
-#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-#   'Accept-Language': 'en',
-#}
+#'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+#'Accept-Language': 'en',
+
+DEFAULT_REQUEST_HEADERS = {
+   'Authorization': 'Basic ' + API_TOKEN
+}
 
 # Enable or disable spider middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'oddschecker.middlewares.MyCustomSpiderMiddleware': 543,
+#    'pinnacle.middlewares.MyCustomSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'oddschecker.middlewares.MyCustomDownloaderMiddleware': 543,
+#    'pinnacle.middlewares.MyCustomDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -61,9 +66,9 @@ NEWSPIDER_MODULE = 'oddschecker.spiders'
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'oddschecker.pipelines.SomePipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'data_collector.pipelines.PinnacleLeaguesPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -83,3 +88,8 @@ NEWSPIDER_MODULE = 'oddschecker.spiders'
 #HTTPCACHE_DIR='httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES=[]
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+#Database settings
+DB_USER = 'root'
+DB_PASSWD = ''
+DB_NAME = 'bbninja'

@@ -7,10 +7,10 @@ from urlparse import urlparse
 from scrapy.spiders import Spider
 from scrapy import Selector
 
-from api_client.items import LeagueItem
-from api_client.items import OddsItem
-from api_client.items import SportItem
-from api_client.items import MatchItem
+from data_collector.items import LeagueItem
+from data_collector.items import OddsItem
+from data_collector.items import SportItem
+from data_collector.items import MatchItem
 
 
 class PinnacleAPISpider(Spider):
