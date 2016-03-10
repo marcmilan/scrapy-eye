@@ -9,6 +9,9 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
+import os
+
+
 # API authorization
 # generated using base64.b64encode(":".join([username, password]))
 API_TOKEN = 'R0M4MDk0NzQ6TGFpc2VlODgmJg=='
@@ -90,6 +93,11 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 #Database settings
+if os.getenv('DATABASE_URL') is None:  # if no heroku env var, assume local
+    SCRAPY_ENV = "local"
+else:
+    SCRAPY_ENV = "heroku"
+
 DB_USER = 'root'
 DB_PASSWD = ''
 DB_NAME = 'bbninja'

@@ -6,12 +6,23 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 import time
+from urlparse import urlparse
+
 from peewee import *
 from scrapy.utils.project import get_project_settings
 
 
 SETTINGS = get_project_settings()
-database = MySQLDatabase(SETTINGS['DB_NAME'], **{'user': SETTINGS['DB_USER']})
+
+
+if SETTINGS['SCRAPY_ENV'] == 'local':
+    database = MySQLDatabase(SETTINGS['DB_NAME'],
+                             **{'user': SETTINGS['DB_USER']})
+else:
+    url = urlparse(os.getenv('CLEARDB_DATABASE_URL'))
+    db_name = cleardb_url.path.strip("/")
+    database = MySQLDatabase(db_name, host=url.hostname, user=url.username,
+                             passwd=url.password)
 
 
 class BaseModel(Model):
