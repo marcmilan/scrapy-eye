@@ -93,7 +93,7 @@ ITEM_PIPELINES = {
 #HTTPCACHE_STORAGE='scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 #Database settings
-if os.getenv('DATABASE_URL') is None:  # if no heroku env var, assume local
+if os.getenv('SCRAPY_NO_HEROKU') is not None:
     SCRAPY_ENV = "local"
 else:
     SCRAPY_ENV = "heroku"

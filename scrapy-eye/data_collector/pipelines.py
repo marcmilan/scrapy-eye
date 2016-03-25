@@ -20,7 +20,7 @@ if SETTINGS['SCRAPY_ENV'] == 'local':
                              **{'user': SETTINGS['DB_USER']})
 else:
     url = urlparse(os.getenv('CLEARDB_DATABASE_URL'))
-    db_name = cleardb_url.path.strip("/")
+    db_name = url.path.strip("/")
     database = MySQLDatabase(db_name, host=url.hostname, user=url.username,
                              passwd=url.password)
 
