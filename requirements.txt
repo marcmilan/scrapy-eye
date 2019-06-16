@@ -18,7 +18,7 @@ requests==2.8.1
 Scrapy==1.0.3
 service-identity==14.0.0
 six==1.10.0
-Twisted==15.5.0
+Twisted==19.2.1
 w3lib==1.13.0
 wheel==0.24.0
 zope.interface==4.1.3
