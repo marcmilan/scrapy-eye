@@ -12,7 +12,7 @@ pyasn1==0.1.9
 pyasn1-modules==0.0.8
 pycparser==2.14
 PyMySQL==0.6.7
-pyOpenSSL==0.15.1
+pyOpenSSL==17.5.0
 queuelib==1.4.2
 requests==2.20.0
 Scrapy==1.0.3
