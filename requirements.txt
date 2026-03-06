@@ -11,7 +11,7 @@ peewee==2.7.3
 pyasn1==0.1.9
 pyasn1-modules==0.0.8
 pycparser==2.14
-PyMySQL==0.6.7
+PyMySQL==1.1.1
 pyOpenSSL==17.5.0
 queuelib==1.4.2
 requests==2.31.0
