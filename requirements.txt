@@ -15,7 +15,7 @@ PyMySQL==1.1.1
 pyOpenSSL==17.5.0
 queuelib==1.4.2
 requests==2.32.4
-Scrapy==2.11.2
+Scrapy==2.14.1
 service-identity==14.0.0
 six==1.10.0
 Twisted==24.7.0rc1
