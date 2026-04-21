@@ -6,7 +6,7 @@ enum34==1.1.1
 idna==3.7
 ipaddress==1.0.15
 isodate==0.5.4
-lxml==4.9.1
+lxml==6.1.0
 peewee==2.7.3
 pyasn1==0.1.9
 pyasn1-modules==0.0.8
